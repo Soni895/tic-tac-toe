@@ -5,8 +5,7 @@ let current_player;
 let game_grid;
 
 init_game()
-current_player.
-win_possition=[
+ let win_possition=[
     [1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]
 ];
 function init_game()
@@ -49,20 +48,16 @@ function display_value(i)
            
             grid_box[i].textContent=current_player;
             current_player="O";
-            game_grid[i]=current_player;
-            player_info.textContent=`Current Player - ${current_player}`;
-            check_gameover();
+           
+          
         }
         else{
-
-           
         grid_box[i].textContent=current_player;
         current_player="X";
-        player_info.textContent=`Current Player - ${current_player}`;
+        }
         game_grid[i]=current_player;
         check_gameover();
-        }
-        
+        player_info.textContent=`Current Player - ${current_player}`;
         }
 
     else{
@@ -76,8 +71,19 @@ newgame.addEventListener("click",()=>
 init_game();
 }
 );
-
 check_gameover=()=>
 {
+
+    for( let i=0;i<win_possition.length;i++)
+    {
+        for(let j=0;j<3;)
+        {
+            if(game_grid[i]!=0&&game_grid[i]===win_possition[i][j])
+            {
+                j++;
+            }
+        }
+    }
+
 
 }
