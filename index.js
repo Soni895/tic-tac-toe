@@ -10,9 +10,14 @@ let game_grid;
 function init_game()
 {       
 
+
+
     for(let i=0;i<grid_box.length;i++)
     {
         grid_box[i].textContent="";
+        grid_box[i].style.pointerEvents="all";
+        grid_box[i].classList.remove("win");
+
     }
     player_info.removeAttribute("id", "winner");
     current_player="X";
@@ -65,8 +70,10 @@ init_game();
 );
 check_gameover=()=>
 {
+    let ans=0;
     win_possition.forEach((position)=>
         {
+       
             console.log(position);
             if((game_grid[position[0]]!== "" && game_grid[position[1]]!==""&& game_grid[position[2]]!=="")
             &&(game_grid[position[0]]===game_grid[position[1]])&&(game_grid[position[1]]===game_grid[position[2]])
@@ -94,14 +101,30 @@ check_gameover=()=>
                 grid_box.forEach((box)=>
                 {
                    box.style.pointerEvents="none";
-
-
-                })
+                });
+                ans=1;
+                
                 
             }
-           
-     
-         });
+        }
+    );
+           let count=0;
+       game_grid.forEach(pos=>
+        {
+            console.log(pos);
+
+            if(pos!=="" &&!ans)
+            {
+                count++;
+            }
+        });
+        console.log(count);
+        if(count==9)
+        {
+            player_info.textContent=`Match Draw`;
+            newgame.classList.add("active");
+        }
+       
 
     
 
