@@ -5,6 +5,7 @@ let current_player;
 let game_grid;
 
 
+
  let win_possition=[
     [0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
     init_game();
@@ -15,6 +16,7 @@ function init_game()
     {
         grid_box[i].textContent="";
     }
+    player_info.removeAttribute("id", "winner");
     current_player="X";
     newgame.classList.remove("active");
     player_info.textContent=`Current Player - ${current_player}`;
@@ -68,6 +70,7 @@ check_gameover=()=>
     win_possition.forEach((position)=>
         {
 
+            pos=position;
             console.log(position);
             if((game_grid[position[0]]!== "" && game_grid[position[1]]!==""&& game_grid[position[2]]!=="")
             &&(game_grid[position[0]]===game_grid[position[1]])&&(game_grid[position[1]]===game_grid[position[2]])
@@ -80,14 +83,14 @@ check_gameover=()=>
                 {
                     
                     player_info.textContent=`Winner is - X`;
-                    player_info.classList.add("win");
+                    
 
                 }
                 else{
                     player_info.textContent=`Winner is - O`;
-                    player_info.classList.add("win");
+                   
                 }
-              
+                player_info.setAttribute("id", "winner");
                 grid_box[position[0]].classList.add("win");
                 grid_box[position[1]].classList.add("win");
                 grid_box[position[2]].classList.add("win");  
