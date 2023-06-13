@@ -4,12 +4,13 @@ let newgame=document.querySelector(".newgame");
 let current_player;
 let game_grid;
 
-init_game();
+
  let win_possition=[
-    [1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]];
+    [0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+    init_game();
 function init_game()
 {       
-    
+
     for(let i=0;i<grid_box.length;i++)
     {
         grid_box[i].textContent="";
@@ -37,16 +38,19 @@ function display_value(i)
         {
            
             grid_box[i].textContent=current_player;
+            game_grid[i]=current_player;
             current_player="O";
+
            
           
         }
         else{
+            game_grid[i]=current_player;
         grid_box[i].textContent=current_player;
         current_player="X";
         }
-        game_grid[i]=current_player;
-        // check_gameover();
+      
+        check_gameover();
         player_info.textContent=`Current Player - ${current_player}`;
         }
 
@@ -62,17 +66,30 @@ init_game();
 );
 check_gameover=()=>
 {
-
-    for( let i=0;i<win_possition.length;i++)
-    {
-        for(let j=0;j<win_possition[i].length;)
+    win_possition.forEach((position)=>
         {
-            if(game_grid[i]!=""&&game_grid[i]===win_possition[i][j])
+
+            console.log(position);
+            if((game_grid[position[0]]!== "" && game_grid[position[1]]!==""&& game_grid[position[2]]!=="")
+            &&(game_grid[position[0]]===game_grid[position[1]])&&(game_grid[position[1]]===game_grid[position[2]])
+            )
+          
             {
-                j++;
+
+            
+
+                
+                grid_box[position[0]].classList.add("win");
+                grid_box[position[1]].classList.add("win");
+                grid_box[position[2]].classList.add("win");  
+
             }
-        }
-    }
+           
+     
+         });
+
+    
+
 
 
 }
