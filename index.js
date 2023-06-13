@@ -38,9 +38,19 @@ function display_value(i)
 {
     if(game_grid[i]==="")
     {
+        if(current_player=="X")
+        {
+            grid_box[i].textContent=current_player;
+            current_player="O";
+            game_grid[i]=current_player;
+        }
+        else{
+
+        
         grid_box[i].textContent=current_player;
-        current_player="O";
+        current_player="X";
         game_grid[i]=current_player;
+        }
     }
 
     else{
