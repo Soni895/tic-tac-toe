@@ -43,12 +43,14 @@ function display_value(i)
             grid_box[i].textContent=current_player;
             current_player="O";
             game_grid[i]=current_player;
+            player_info.textContent=`Current Player - ${current_player}`;
         }
         else{
 
-        
+           
         grid_box[i].textContent=current_player;
         current_player="X";
+        player_info.textContent=`Current Player - ${current_player}`;
         game_grid[i]=current_player;
         }
     }
