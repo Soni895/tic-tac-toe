@@ -4,10 +4,9 @@ let newgame=document.querySelector(".newgame");
 let current_player;
 let game_grid;
 
-init_game()
+init_game();
  let win_possition=[
-    [1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]
-];
+    [1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]];
 function init_game()
 {       
     
@@ -21,15 +20,6 @@ function init_game()
     game_grid=["","","","","","","","",""];
 
 }
-
-
-// grid_box.forEach((value,index)=>
-// {
-//     value.addEventListener("click",()=> display_value(index)
-//      );
-
-// });
-
 
 
 for(let i=0;i<grid_box.length;i++)
@@ -56,7 +46,7 @@ function display_value(i)
         current_player="X";
         }
         game_grid[i]=current_player;
-        check_gameover();
+        // check_gameover();
         player_info.textContent=`Current Player - ${current_player}`;
         }
 
@@ -64,7 +54,6 @@ function display_value(i)
 return;
     }
 }
-
 
 newgame.addEventListener("click",()=>
 {
@@ -76,9 +65,9 @@ check_gameover=()=>
 
     for( let i=0;i<win_possition.length;i++)
     {
-        for(let j=0;j<3;)
+        for(let j=0;j<win_possition[i].length;)
         {
-            if(game_grid[i]!=0&&game_grid[i]===win_possition[i][j])
+            if(game_grid[i]!=""&&game_grid[i]===win_possition[i][j])
             {
                 j++;
             }
