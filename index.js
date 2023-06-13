@@ -4,8 +4,6 @@ let newgame=document.querySelector(".newgame");
 let current_player;
 let game_grid;
 
-
-
  let win_possition=[
     [0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
     init_game();
@@ -69,8 +67,6 @@ check_gameover=()=>
 {
     win_possition.forEach((position)=>
         {
-
-            pos=position;
             console.log(position);
             if((game_grid[position[0]]!== "" && game_grid[position[1]]!==""&& game_grid[position[2]]!=="")
             &&(game_grid[position[0]]===game_grid[position[1]])&&(game_grid[position[1]]===game_grid[position[2]])
@@ -95,7 +91,13 @@ check_gameover=()=>
                 grid_box[position[1]].classList.add("win");
                 grid_box[position[2]].classList.add("win");  
                 newgame.classList.add("active");
+                grid_box.forEach((box)=>
+                {
+                   box.style.pointerEvents="none";
 
+
+                })
+                
             }
            
      
