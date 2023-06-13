@@ -74,7 +74,7 @@ check_gameover=()=>
             )
           
             {
-                console.log(game_grid[position[0]]);
+               
 
                 if(game_grid[position[0]]=="X")
                 {
