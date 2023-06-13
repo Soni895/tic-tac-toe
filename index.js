@@ -49,9 +49,8 @@ function display_value(i)
         grid_box[i].textContent=current_player;
         current_player="X";
         }
-      
-        check_gameover();
         player_info.textContent=`Current Player - ${current_player}`;
+        check_gameover();
         }
 
     else{
@@ -75,10 +74,17 @@ check_gameover=()=>
             )
           
             {
+                console.log(game_grid[position[0]]);
 
-            
-
-                
+                if(game_grid[position[0]]=="X")
+                {
+                    
+                    player_info.textContent=`Winner is - X`;
+                }
+                else{
+                    player_info.textContent=`Winner is - O`;
+                }
+              
                 grid_box[position[0]].classList.add("win");
                 grid_box[position[1]].classList.add("win");
                 grid_box[position[2]].classList.add("win");  
