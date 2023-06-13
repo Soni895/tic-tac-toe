@@ -74,7 +74,6 @@ check_gameover=()=>
     win_possition.forEach((position)=>
         {
        
-            console.log(position);
             if((game_grid[position[0]]!== "" && game_grid[position[1]]!==""&& game_grid[position[2]]!=="")
             &&(game_grid[position[0]]===game_grid[position[1]])&&(game_grid[position[1]]===game_grid[position[2]])
             )
@@ -111,14 +110,13 @@ check_gameover=()=>
            let count=0;
        game_grid.forEach(pos=>
         {
-            console.log(pos);
 
             if(pos!=="" &&!ans)
             {
                 count++;
             }
         });
-        console.log(count);
+       
         if(count==9)
         {
             player_info.textContent=`Match Draw`;
