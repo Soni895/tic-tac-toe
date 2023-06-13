@@ -72,7 +72,7 @@ check_gameover=()=>
             if((game_grid[position[0]]!== "" && game_grid[position[1]]!==""&& game_grid[position[2]]!=="")
             &&(game_grid[position[0]]===game_grid[position[1]])&&(game_grid[position[1]]===game_grid[position[2]])
             )
-          
+    
             {
                
 
@@ -80,14 +80,18 @@ check_gameover=()=>
                 {
                     
                     player_info.textContent=`Winner is - X`;
+                    player_info.classList.add("win");
+
                 }
                 else{
                     player_info.textContent=`Winner is - O`;
+                    player_info.classList.add("win");
                 }
               
                 grid_box[position[0]].classList.add("win");
                 grid_box[position[1]].classList.add("win");
                 grid_box[position[2]].classList.add("win");  
+                newgame.classList.add("active");
 
             }
            
