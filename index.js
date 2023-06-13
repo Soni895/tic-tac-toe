@@ -17,6 +17,7 @@ function init_game()
         grid_box[i].textContent="";
     }
     current_player="X";
+    newgame.classList.remove("active");
     player_info.textContent=`Current Player - ${current_player}`;
     game_grid=["","","","","","","","",""];
 
@@ -45,6 +46,7 @@ function display_value(i)
 
         if(current_player=="X")
         {
+           
             grid_box[i].textContent=current_player;
             current_player="O";
             game_grid[i]=current_player;
@@ -67,6 +69,7 @@ function display_value(i)
 return;
     }
 }
+
 
 newgame.addEventListener("click",()=>
 {
